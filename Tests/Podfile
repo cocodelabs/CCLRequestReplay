@@ -1,0 +1,8 @@
+platform :osx, '10.7'
+
+pod 'CCLRequestReplay', :path => '../'
+
+pod 'Expecta'
+pod 'Specta'
+pod 'OCMock'
+

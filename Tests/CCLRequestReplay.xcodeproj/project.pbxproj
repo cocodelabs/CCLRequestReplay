@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		77F7102F1891A40D00828235 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F7102E1891A40D00828235 /* XCTest.framework */; };
+		77F710351891A40D00828235 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F710331891A40D00828235 /* InfoPlist.strings */; };
+		77F710371891A40D00828235 /* CCLRequestReplayManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F710361891A40D00828235 /* CCLRequestReplayManagerTest.m */; };
+		77F7103D1891BC8200828235 /* CCLRequestReplayProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F7103C1891BC8200828235 /* CCLRequestReplayProtocolTest.m */; };
+		F56A9D47B4424EA5B363B21C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C65DFCB8E8DB4891902A78A9 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		77F7102B1891A40D00828235 /* CCLRequestReplayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCLRequestReplayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F7102E1891A40D00828235 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		77F710321891A40D00828235 /* CCLRequestReplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCLRequestReplayTests-Info.plist"; sourceTree = "<group>"; };
+		77F710341891A40D00828235 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		77F710361891A40D00828235 /* CCLRequestReplayManagerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLRequestReplayManagerTest.m; sourceTree = "<group>"; };
+		77F710381891A40D00828235 /* CCLRequestReplayTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCLRequestReplayTests-Prefix.pch"; sourceTree = "<group>"; };
+		77F7103C1891BC8200828235 /* CCLRequestReplayProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestReplayProtocolTest.m; sourceTree = "<group>"; };
+		AE0C05A30E1A465B91E56DC3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C65DFCB8E8DB4891902A78A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77F710281891A40D00828235 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F7102F1891A40D00828235 /* XCTest.framework in Frameworks */,
+				F56A9D47B4424EA5B363B21C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		77F710201891A3D900828235 = {
+			isa = PBXGroup;
+			children = (
+				77F710301891A40D00828235 /* CCLRequestReplayTests */,
+				77F7102D1891A40D00828235 /* Frameworks */,
+				77F7102C1891A40D00828235 /* Products */,
+				AE0C05A30E1A465B91E56DC3 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		77F7102C1891A40D00828235 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77F7102B1891A40D00828235 /* CCLRequestReplayTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77F7102D1891A40D00828235 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77F7102E1891A40D00828235 /* XCTest.framework */,
+				C65DFCB8E8DB4891902A78A9 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77F710301891A40D00828235 /* CCLRequestReplayTests */ = {
+			isa = PBXGroup;
+			children = (
+				77F710361891A40D00828235 /* CCLRequestReplayManagerTest.m */,
+				77F7103C1891BC8200828235 /* CCLRequestReplayProtocolTest.m */,
+				77F710311891A40D00828235 /* Supporting Files */,
+			);
+			path = CCLRequestReplayTests;
+			sourceTree = "<group>";
+		};
+		77F710311891A40D00828235 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77F710321891A40D00828235 /* CCLRequestReplayTests-Info.plist */,
+				77F710331891A40D00828235 /* InfoPlist.strings */,
+				77F710381891A40D00828235 /* CCLRequestReplayTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77F7102A1891A40D00828235 /* CCLRequestReplayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F7103B1891A40D00828235 /* Build configuration list for PBXNativeTarget "CCLRequestReplayTests" */;
+			buildPhases = (
+				5E6EADDBCBA9490BAE5F5131 /* Check Pods Manifest.lock */,
+				77F710271891A40D00828235 /* Sources */,
+				77F710281891A40D00828235 /* Frameworks */,
+				77F710291891A40D00828235 /* Resources */,
+				9271F3E759284ADC8E46A3E5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CCLRequestReplayTests;
+			productName = CCLRequestReplayTests;
+			productReference = 77F7102B1891A40D00828235 /* CCLRequestReplayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77F710211891A3D900828235 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 77F710241891A3D900828235 /* Build configuration list for PBXProject "CCLRequestReplay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 77F710201891A3D900828235;
+			productRefGroup = 77F7102C1891A40D00828235 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77F7102A1891A40D00828235 /* CCLRequestReplayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77F710291891A40D00828235 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F710351891A40D00828235 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E6EADDBCBA9490BAE5F5131 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9271F3E759284ADC8E46A3E5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77F710271891A40D00828235 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F710371891A40D00828235 /* CCLRequestReplayManagerTest.m in Sources */,
+				77F7103D1891BC8200828235 /* CCLRequestReplayProtocolTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		77F710331891A40D00828235 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77F710341891A40D00828235 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		77F710251891A3D900828235 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		77F710261891A3D900828235 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		77F710391891A40D00828235 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE0C05A30E1A465B91E56DC3 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCLRequestReplayTests/CCLRequestReplayTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "CCLRequestReplayTests/CCLRequestReplayTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		77F7103A1891A40D00828235 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE0C05A30E1A465B91E56DC3 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCLRequestReplayTests/CCLRequestReplayTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "CCLRequestReplayTests/CCLRequestReplayTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77F710241891A3D900828235 /* Build configuration list for PBXProject "CCLRequestReplay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F710251891A3D900828235 /* Debug */,
+				77F710261891A3D900828235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77F7103B1891A40D00828235 /* Build configuration list for PBXNativeTarget "CCLRequestReplayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F710391891A40D00828235 /* Debug */,
+				77F7103A1891A40D00828235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 77F710211891A3D900828235 /* Project object */;
+}

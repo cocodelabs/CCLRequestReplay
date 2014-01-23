@@ -1,0 +1,3 @@
+2014-01-23 20:32:13.390 xcodebuild[41892:1007] FuzzyAutocomplete: Plugin loaded
+xcodebuild: error: The run destination iPhone Retina (4-inch 64-bit) is not valid for Testing the scheme 'CCLRequestReplayTests'.
+	The scheme 'CCLRequestReplayTests' contains no buildables that can be built for the SDKs supported by the run destination iPhone Retina (4-inch 64-bit). Make sure your targets all specify SDKs that are supported by this version of Xcode.

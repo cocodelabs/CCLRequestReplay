@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>879BD9EC-3C7D-4DC7-AE96-BEA8A6AC74BF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CCLRequestReplay</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D6523866-B315-4069-BB01-522DCDE78EF2</key>
+		<string>https://github.com/cocodelabs/CCLRequestReplay</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tests/CCLRequestReplay.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D6523866-B315-4069-BB01-522DCDE78EF2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cocodelabs/CCLRequestReplay</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D6523866-B315-4069-BB01-522DCDE78EF2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D6523866-B315-4069-BB01-522DCDE78EF2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CCLRequestReplay</string>
+		</dict>
+	</array>
+</dict>
+</plist>
