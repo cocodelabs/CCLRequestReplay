@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-@class CCLRequestReplayManager;
+#import "CCLRequestReplayManager.h"
 
 
 @interface CCLRequestReplayProtocol : NSURLProtocol
 
-+ (CCLRequestReplayManager *)manager;
-+ (void)setManager:(CCLRequestReplayManager *)manager;
+@end
+
+@interface CCLRequestReplayManager (Replay)
+
+- (void)replay;
+- (void)stopReplay;
 
 @end
+

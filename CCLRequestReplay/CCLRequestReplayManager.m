@@ -57,11 +57,4 @@
     [self addRecording:recording];
 }
 
-#pragma mark - Replay
-
-- (void)replay {
-    [CCLRequestReplayProtocol setManager:self];
-    [NSURLProtocol registerClass:[CCLRequestReplayProtocol class]];
-}
-
 @end

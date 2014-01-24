@@ -33,9 +33,25 @@ describe(@"CCLRequestReplayProtocol", ^{
         NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:201 HTTPVersion:@"1.1" headerFields:@{}];
         [manager addRequest:request response:response data:nil];
 
-        [CCLRequestReplayProtocol setManager:manager];
+        [manager replay];
 
         expect([CCLRequestReplayProtocol canInitWithRequest:request]).to.beTruthy();
+
+        [manager stopReplay];
+    });
+
+    it(@"shouldn't init after stop replaying", ^{
+        CCLRequestReplayManager *manager = [[CCLRequestReplayManager alloc] init];
+
+        NSURL *URL = [NSURL URLWithString:@"http://cocode.org/test"];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:201 HTTPVersion:@"1.1" headerFields:@{}];
+        [manager addRequest:request response:response data:nil];
+
+        [manager replay];
+        [manager stopReplay];
+
+        expect([CCLRequestReplayProtocol canInitWithRequest:request]).to.beFalsy();
     });
 
     it(@"should canonicalize request", ^{
@@ -57,7 +73,7 @@ describe(@"CCLRequestReplayProtocol", ^{
         NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:201 HTTPVersion:@"1.1" headerFields:@{}];
         [manager addRequest:request response:response data:nil];
 
-        [CCLRequestReplayProtocol setManager:manager];
+        [manager replay];
 
         OCMockObject<NSURLProtocolClient> *client = [OCMockObject mockForProtocol:@protocol(NSURLProtocolClient)];
         CCLRequestReplayProtocol *protocol = [[CCLRequestReplayProtocol alloc] initWithRequest:request cachedResponse:nil client:client];
@@ -66,7 +82,8 @@ describe(@"CCLRequestReplayProtocol", ^{
 
         [protocol startLoading];
 
-        [client verify]; 
+        [client verify];
+        [manager stopReplay];
     });
 
     it(@"should replay error for matching request", ^{
@@ -82,7 +99,7 @@ describe(@"CCLRequestReplayProtocol", ^{
         NSError *error = [NSError errorWithDomain:@"Failure" code:200 userInfo:nil];
         [manager addRequest:request error:error];
 
-        [CCLRequestReplayProtocol setManager:manager];
+        [manager replay];
 
         OCMockObject<NSURLProtocolClient> *client = [OCMockObject mockForProtocol:@protocol(NSURLProtocolClient)];
         CCLRequestReplayProtocol *protocol = [[CCLRequestReplayProtocol alloc] initWithRequest:request cachedResponse:nil client:client];
@@ -90,7 +107,8 @@ describe(@"CCLRequestReplayProtocol", ^{
 
         [protocol startLoading];
 
-        [client verify]; 
+        [client verify];
+        [manager stopReplay];
     });
 });
 

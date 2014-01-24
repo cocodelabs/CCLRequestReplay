@@ -8,28 +8,38 @@
 
 #import "CCLRequestReplayProtocol.h"
 #import "CCLRequestRecording.h"
-#import "CCLRequestReplayManager.h"
 
 
 @implementation CCLRequestReplayProtocol
 
-static CCLRequestReplayManager *_manager;
+static NSMutableSet *_managers;
 
-+ (CCLRequestReplayManager *)manager {
-    return _manager;
++ (NSMutableSet *)managers {
+    return _managers;
 }
 
-+ (void)setManager:(CCLRequestReplayManager *)manager {
-    _manager = manager;
++ (void)addManager:(CCLRequestReplayManager *)manager {
+    if (_managers == nil) {
+        [NSURLProtocol registerClass:[CCLRequestRecording class]];
+        _managers = [NSMutableSet new];
+    }
+
+    [_managers addObject:manager];
+}
+
++ (void)removeManager:(CCLRequestReplayManager *)manager {
+    [_managers removeObject:manager];
 }
 
 + (CCLRequestRecording *)recordingForRequest:(NSURLRequest *)request {
-    if (_manager) {
-        for (CCLRequestRecording *recording in [_manager recordings]) {
-            NSURLRequest *recordedRequest = [recording request];
+    if (_managers) {
+        for (CCLRequestReplayManager *manager in _managers) {
+            for (CCLRequestRecording *recording in [manager recordings]) {
+                NSURLRequest *recordedRequest = [recording request];
 
-            if ([[recordedRequest URL] isEqual:[request URL]]) {
-                return recording;
+                if ([[recordedRequest URL] isEqual:[request URL]]) {
+                    return recording;
+                }
             }
         }
     }
@@ -65,3 +75,16 @@ static CCLRequestReplayManager *_manager;
 }
 
 @end
+
+@implementation CCLRequestReplayManager (Replay)
+
+- (void)replay {
+    [CCLRequestReplayProtocol addManager:self];
+}
+
+- (void)stopReplay {
+    [CCLRequestReplayProtocol removeManager:self];
+}
+
+@end
+

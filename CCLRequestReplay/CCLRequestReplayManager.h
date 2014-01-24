@@ -22,6 +22,4 @@
 - (void)removeRecording:(CCLRequestRecording *)recording;
 - (void)removeAllRecordings;
 
-- (void)replay;
-
 @end
