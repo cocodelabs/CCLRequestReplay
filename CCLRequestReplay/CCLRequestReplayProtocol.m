@@ -14,13 +14,9 @@
 
 static NSMutableSet *_managers;
 
-+ (NSMutableSet *)managers {
-    return _managers;
-}
-
 + (void)addManager:(CCLRequestReplayManager *)manager {
     if (_managers == nil) {
-        [NSURLProtocol registerClass:[CCLRequestRecording class]];
+        [NSURLProtocol registerClass:[CCLRequestReplayProtocol class]];
         _managers = [NSMutableSet new];
     }
 
@@ -29,6 +25,11 @@ static NSMutableSet *_managers;
 
 + (void)removeManager:(CCLRequestReplayManager *)manager {
     [_managers removeObject:manager];
+
+    if (_managers && [_managers count] == 0) {
+        [NSURLProtocol unregisterClass:[CCLRequestReplayProtocol class]];
+        _managers = nil;
+    }
 }
 
 + (CCLRequestRecording *)recordingForRequest:(NSURLRequest *)request {

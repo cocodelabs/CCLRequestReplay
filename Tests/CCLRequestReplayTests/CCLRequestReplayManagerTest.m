@@ -14,6 +14,7 @@
 
 #import <CCLRequestReplay/CCLRequestReplayManager.h>
 #import <CCLRequestReplay/CCLRequestRecording.h>
+#import <CCLRequestReplay/CCLRequestReplayProtocol.h>
 
 
 SpecBegin(CLRequestReplayManager)
@@ -79,24 +80,20 @@ describe(@"CLRequestReplayManager", ^{
         expect([[sut recordings] count]).to.equal(0);
     });
 
-//    it(@"should register a protocol for replaying", ^{
-//        NSURL *URL = [NSURL URLWithString:@"ccl://cocode.org/test"];
-//        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
-//        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"1.1" headerFields:@{}];
-//        NSData *data = [@"Hello World!" dataUsingEncoding:NSUTF8StringEncoding];
-//
-//        CCLRequestReplayManager *sut = [[CCLRequestReplayManager alloc] init];
-//        [sut addRequest:request response:response data:data];
-//        [sut replay];
-//
-//        NSError *error;
-//        NSURLResponse *outResponse;
-//        NSData *outData = [NSURLConnection sendSynchronousRequest:request returningResponse:&outResponse error:&error];
-//
-//        expect(error).to.beNil();
-//        expect(outResponse).to.equal(response);
-//        expect(outData).to.equal(data);
-//    });
+    it(@"should register a protocol for replaying", ^{
+        NSURL *URL = [NSURL URLWithString:@"ccl://cocode.org/test"];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"1.1" headerFields:@{}];
+        NSData *data = [@"Hello World!" dataUsingEncoding:NSUTF8StringEncoding];
+
+        CCLRequestReplayManager *sut = [[CCLRequestReplayManager alloc] init];
+        [sut addRequest:request response:response data:data];
+        [sut replay];
+
+        expect([NSURLConnection canHandleRequest:request]).to.beTruthy();
+
+        [sut stopReplay];
+    });
 });
 
 SpecEnd
