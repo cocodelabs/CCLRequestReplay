@@ -9,7 +9,18 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CCLRequestRecording : NSObject
+@protocol CCLRequestRecordingProtocol <NSObject>
+
+- (BOOL)matchesRequest:(NSURLRequest *)request;
+
+- (NSError *)errorForRequest:(NSURLRequest *)request;
+
+- (NSURLResponse *)responseForRequest:(NSURLRequest *)request;
+- (NSData *)dataForRequest:(NSURLRequest *)request;
+
+@end
+
+@interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol>
 
 - (instancetype)initWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data;
 - (instancetype)initWithRequest:(NSURLRequest *)request error:(NSError *)error;

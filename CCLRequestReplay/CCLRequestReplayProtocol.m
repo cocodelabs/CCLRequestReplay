@@ -32,13 +32,11 @@ static NSMutableSet *_managers;
     }
 }
 
-+ (CCLRequestRecording *)recordingForRequest:(NSURLRequest *)request {
++ (id<CCLRequestRecordingProtocol>)recordingForRequest:(NSURLRequest *)request {
     if (_managers) {
         for (CCLRequestReplayManager *manager in _managers) {
-            for (CCLRequestRecording *recording in [manager recordings]) {
-                NSURLRequest *recordedRequest = [recording request];
-
-                if ([[recordedRequest URL] isEqual:[request URL]]) {
+            for (id<CCLRequestRecordingProtocol> recording in [manager recordings]) {
+                if ([recording matchesRequest:request]) {
                     return recording;
                 }
             }
@@ -57,14 +55,20 @@ static NSMutableSet *_managers;
 }
 
 - (void)startLoading {
-    CCLRequestRecording *recording = [[self class] recordingForRequest:[self request]];
+    id<CCLRequestRecordingProtocol> recording = [[self class] recordingForRequest:[self request]];
 
-    if ([recording error]) {
-        [[self client] URLProtocol:self didFailWithError:[recording error]];
+    NSError *error = [recording errorForRequest:[self request]];
+
+    if (error) {
+        [[self client] URLProtocol:self didFailWithError:error];
     } else {
-        [[self client] URLProtocol:self didReceiveResponse:[recording response] cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-        if ([recording data]) {
-            [[self client] URLProtocol:self didLoadData:[recording data]];
+        NSURLResponse *response = [recording responseForRequest:[self request]];
+        NSData *data = [recording dataForRequest:[self request]];
+
+        [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+
+        if (data) {
+            [[self client] URLProtocol:self didLoadData:data];
         }
 
         [[self client] URLProtocolDidFinishLoading:self];

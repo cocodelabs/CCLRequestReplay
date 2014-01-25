@@ -30,4 +30,26 @@
     return self;
 }
 
+#pragma mark - Matching
+
+- (BOOL)matchesRequest:(NSURLRequest *)request {
+    return [[[self request] URL] isEqual:[request URL]];
+}
+
+#pragma mark - Error
+
+- (NSError *)errorForRequest:(NSURLRequest *)request {
+    return [self error];
+}
+
+#pragma mark - Response + Data
+
+- (NSURLResponse *)responseForRequest:(NSURLRequest *)request {
+    return [self response];
+}
+
+- (NSData *)dataForRequest:(NSURLRequest *)request {
+    return [self data];
+}
+
 @end
