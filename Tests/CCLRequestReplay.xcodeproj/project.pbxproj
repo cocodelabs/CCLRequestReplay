@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77756B3E18965FE400A55DB0 /* CCLRequestRecordingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */; };
+		77756B401896626600A55DB0 /* CCLRequestRecordProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B3F1896626600A55DB0 /* CCLRequestRecordProtocolTest.m */; };
 		77F7102F1891A40D00828235 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F7102E1891A40D00828235 /* XCTest.framework */; };
 		77F710351891A40D00828235 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F710331891A40D00828235 /* InfoPlist.strings */; };
 		77F710371891A40D00828235 /* CCLRequestReplayManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F710361891A40D00828235 /* CCLRequestReplayManagerTest.m */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestRecordingTest.m; sourceTree = "<group>"; };
+		77756B3F1896626600A55DB0 /* CCLRequestRecordProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestRecordProtocolTest.m; sourceTree = "<group>"; };
 		77F7102B1891A40D00828235 /* CCLRequestReplayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCLRequestReplayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F7102E1891A40D00828235 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		77F710321891A40D00828235 /* CCLRequestReplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCLRequestReplayTests-Info.plist"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		77F710301891A40D00828235 /* CCLRequestReplayTests */ = {
 			isa = PBXGroup;
 			children = (
+				77756B3F1896626600A55DB0 /* CCLRequestRecordProtocolTest.m */,
 				77F710361891A40D00828235 /* CCLRequestReplayManagerTest.m */,
 				77F7103C1891BC8200828235 /* CCLRequestReplayProtocolTest.m */,
 				77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77756B3E18965FE400A55DB0 /* CCLRequestRecordingTest.m in Sources */,
+				77756B401896626600A55DB0 /* CCLRequestRecordProtocolTest.m in Sources */,
 				77F710371891A40D00828235 /* CCLRequestReplayManagerTest.m in Sources */,
 				77F7103D1891BC8200828235 /* CCLRequestReplayProtocolTest.m in Sources */,
 			);

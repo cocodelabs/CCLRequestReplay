@@ -7,8 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCLRequestReplayManager.h"
 
 
 @interface CCLRequestRecordProtocol : NSURLProtocol
+
+@end
+
+@interface CCLRequestReplayManager (Record)
+
+- (void)record;
+- (void)stopRecording;
 
 @end
