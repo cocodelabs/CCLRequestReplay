@@ -33,7 +33,7 @@
 #pragma mark - Matching
 
 - (BOOL)matchesRequest:(NSURLRequest *)request {
-    return [[[self request] URL] isEqual:[request URL]];
+    return [[[self request] URL] isEqual:[request URL]] && [[[self request] HTTPMethod] isEqualToString:[request HTTPMethod]];
 }
 
 #pragma mark - Error
