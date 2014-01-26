@@ -30,6 +30,23 @@
     return self;
 }
 
+#pragma mark - Equality
+
+- (BOOL)isEqual:(id)object {
+    return (self == object) || ([object isKindOfClass:[self class]] && [self isEqualToRecording:object]);
+}
+
+- (BOOL)isEqualToRecording:(CCLRequestRecording *)recording {
+    return [self.request isEqual:recording.request] &&
+        ((!self.error && !recording.error) || [self.error isEqual:recording.error]) &&
+        ((!self.response && !recording.response) || [self.response isEqual:recording.response]) &&
+        ((!self.data && !recording.data) || [self.data isEqual:recording.data]);
+}
+
+- (NSUInteger)hash {
+    return [self.request hash];
+}
+
 #pragma mark - Matching
 
 - (BOOL)matchesRequest:(NSURLRequest *)request {

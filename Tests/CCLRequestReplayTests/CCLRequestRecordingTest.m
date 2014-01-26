@@ -38,6 +38,50 @@ describe(@"CCLRequestRecording", ^{
 
         expect([recording matchesRequest:mutableRequest]).to.beFalsy();
     });
+
+    it(@"should compare two recordings with same request and error as the same", ^{
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://test.com/"]];
+        NSError *error = [NSError errorWithDomain:@"ErrorDomain" code:0 userInfo:nil];
+
+        CCLRequestRecording *recordingA = [[CCLRequestRecording alloc] initWithRequest:request error:error];
+        CCLRequestRecording *recordingB = [[CCLRequestRecording alloc] initWithRequest:request error:error];
+
+        expect([recordingA isEqualToRecording:recordingB]).to.beTruthy();
+    });
+
+    it(@"should compare two recordings with same request, response and data as the same", ^{
+        NSURL *URL = [NSURL URLWithString:@"http://test.com/"];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"1.1" headerFields:@{}];
+        NSData *data = [@"Hello World!" dataUsingEncoding:NSUTF8StringEncoding];
+
+        CCLRequestRecording *recordingA = [[CCLRequestRecording alloc] initWithRequest:request response:response data:data];
+        CCLRequestRecording *recordingB = [[CCLRequestRecording alloc] initWithRequest:request response:response data:data];
+
+        expect([recordingA isEqualToRecording:recordingB]).to.beTruthy();
+    });
+
+    it(@"should hash two recordings with identical request and error with as the same hash", ^{
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://test.com/"]];
+        NSError *error = [NSError errorWithDomain:@"ErrorDomain" code:0 userInfo:nil];
+
+        CCLRequestRecording *recordingA = [[CCLRequestRecording alloc] initWithRequest:request error:error];
+        CCLRequestRecording *recordingB = [[CCLRequestRecording alloc] initWithRequest:request error:error];
+
+        expect([recordingA hash]).to.equal([recordingB hash]);
+    });
+
+    it(@"should hash two recordings with identical request and error with as the same hash", ^{
+        NSURL *URL = [NSURL URLWithString:@"http://test.com/"];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"1.1" headerFields:@{}];
+        NSData *data = [@"Hello World!" dataUsingEncoding:NSUTF8StringEncoding];
+
+        CCLRequestRecording *recordingA = [[CCLRequestRecording alloc] initWithRequest:request response:response data:data];
+        CCLRequestRecording *recordingB = [[CCLRequestRecording alloc] initWithRequest:request response:response data:data];
+
+        expect([recordingA hash]).to.equal([recordingB hash]);
+    });
 });
 
 SpecEnd

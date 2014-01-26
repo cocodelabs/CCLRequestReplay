@@ -55,12 +55,13 @@ describe(@"CLRequestReplayManager", ^{
     });
 
     it(@"should be able to remove a recording", ^{
-        NSURLRequest *request = [[NSURLRequest alloc] init];
+        NSURLRequest *requestA = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://testA.com"]];
+        NSURLRequest *requestB = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://testB.com"]];
         NSError *error = [[NSError alloc] init];
 
         CCLRequestReplayManager *sut = [[CCLRequestReplayManager alloc] init];
-        [sut addRequest:request error:error];
-        [sut addRequest:request error:error];
+        [sut addRequest:requestA error:error];
+        [sut addRequest:requestB error:error];
 
         [sut removeRecording:[[sut recordings] firstObject]];
 

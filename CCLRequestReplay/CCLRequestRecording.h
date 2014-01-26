@@ -25,6 +25,8 @@
 - (instancetype)initWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data;
 - (instancetype)initWithRequest:(NSURLRequest *)request error:(NSError *)error;
 
+- (BOOL)isEqualToRecording:(CCLRequestRecording *)recording;
+
 @property (nonatomic, copy, readonly) NSURLRequest *request;
 @property (nonatomic, copy, readonly) NSURLResponse *response;
 @property (nonatomic, copy, readonly) NSData *data;
