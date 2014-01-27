@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCLRequestRecording.h"
 
-
-@class CCLRequestRecording;
 
 @interface CCLRequestReplayManager : NSObject <NSSecureCoding>
 
+/** Returns an array of all registered recordings. */
 - (NSArray *)recordings;
 
-- (void)addRecording:(CCLRequestRecording *)recording;
+- (void)addRecording:(id<CCLRequestRecordingProtocol>)recording;
 - (void)addRequest:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data;
 - (void)addRequest:(NSURLRequest *)request error:(NSError *)error;
 
-- (void)removeRecording:(CCLRequestRecording *)recording;
+- (void)removeRecording:(id<CCLRequestRecordingProtocol>)recording;
 - (void)removeAllRecordings;
 
 @end

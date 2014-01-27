@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol CCLRequestRecordingProtocol <NSObject>
+@protocol CCLRequestRecordingProtocol <NSObject, NSSecureCoding>
 
 - (BOOL)matchesRequest:(NSURLRequest *)request;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol, NSSecureCoding>
+@interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol>
 
 - (instancetype)initWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data;
 - (instancetype)initWithRequest:(NSURLRequest *)request error:(NSError *)error;

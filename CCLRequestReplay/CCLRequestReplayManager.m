@@ -51,11 +51,11 @@
 
 #pragma mark - Managing recordings
 
-- (void)addRecording:(CCLRequestRecording *)recording {
+- (void)addRecording:(id<CCLRequestRecordingProtocol>)recording {
     [_recordings addObject:recording];
 }
 
-- (void)removeRecording:(CCLRequestRecording *)recording {
+- (void)removeRecording:(id<CCLRequestRecordingProtocol>)recording {
     [_recordings removeObject:recording];
 }
 
