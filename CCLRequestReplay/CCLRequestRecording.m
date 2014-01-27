@@ -30,6 +30,30 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        _request = [aDecoder decodeObjectOfClass:[NSURLRequest class] forKey:@"request"];
+        _response = [aDecoder decodeObjectOfClass:[NSURLResponse class] forKey:@"response"];
+        _data = [aDecoder decodeObjectOfClass:[NSData class] forKey:@"data"];
+        _error = [aDecoder decodeObjectOfClass:[NSError class] forKey:@"error"];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_request forKey:@"request"];
+    [aCoder encodeObject:_response forKey:@"response"];
+    [aCoder encodeObject:_data forKey:@"data"];
+    [aCoder encodeObject:_error forKey:@"error"];
+}
+
 #pragma mark - Equality
 
 - (BOOL)isEqual:(id)object {

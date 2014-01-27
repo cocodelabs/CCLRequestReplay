@@ -20,7 +20,7 @@
 
 @end
 
-@interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol>
+@interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol, NSSecureCoding>
 
 - (instancetype)initWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data;
 - (instancetype)initWithRequest:(NSURLRequest *)request error:(NSError *)error;

@@ -82,6 +82,19 @@ describe(@"CCLRequestRecording", ^{
 
         expect([recordingA hash]).to.equal([recordingB hash]);
     });
+
+    it(@"should should support secure coding", ^{
+        expect([CCLRequestRecording supportsSecureCoding]).to.beTruthy();
+    });
+
+    it(@"should be able to encode and decode", ^{
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://test.com/"]];
+        CCLRequestRecording *recording = [[CCLRequestRecording alloc] initWithRequest:request error:nil];
+        NSData *archivedRecording = [NSKeyedArchiver archivedDataWithRootObject:recording];
+        CCLRequestRecording *unarchivedRecording = [NSKeyedUnarchiver unarchiveObjectWithData:archivedRecording];
+
+        expect([recording isEqualToRecording:unarchivedRecording]).to.beTruthy();
+    });
 });
 
 SpecEnd
