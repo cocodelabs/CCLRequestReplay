@@ -11,7 +11,7 @@
 
 @class CCLRequestRecording;
 
-@interface CCLRequestReplayManager : NSObject
+@interface CCLRequestReplayManager : NSObject <NSSecureCoding>
 
 - (NSArray *)recordings;
 

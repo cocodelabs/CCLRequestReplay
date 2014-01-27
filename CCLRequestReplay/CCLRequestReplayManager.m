@@ -31,6 +31,24 @@
     return [_recordings copy];
 }
 
+#pragma mark - NSSecureCoding
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        _recordings = [[aDecoder decodeObjectOfClass:[NSArray class] forKey:@"recordings"] mutableCopy];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:[self.recordings copy] forKey:@"recordings"];
+}
+
 #pragma mark - Managing recordings
 
 - (void)addRecording:(CCLRequestRecording *)recording {

@@ -95,6 +95,20 @@ describe(@"CLRequestReplayManager", ^{
 
         [sut stopReplay];
     });
+
+    it(@"should support secure encoding", ^{
+        expect([CCLRequestReplayManager supportsSecureCoding]).to.beTruthy();
+    });
+
+    it(@"should should encode and decode a manager", ^{
+        CCLRequestReplayManager *manager = [[CCLRequestReplayManager alloc] init];
+        [manager addRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://test/"]] error:nil];
+
+        NSData *archivedManager = [NSKeyedArchiver archivedDataWithRootObject:manager];
+        CCLRequestReplayManager *unarchivedManager = [NSKeyedUnarchiver unarchiveObjectWithData:archivedManager];
+
+        expect([manager recordings]).to.equal([unarchivedManager recordings]);
+    });
 });
 
 SpecEnd
