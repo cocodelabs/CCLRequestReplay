@@ -10,5 +10,8 @@ test:
 	@printf "\e[32m=> Running OS X Tests\033[0m\n"
 	@$(XCODEBUILD) test | xcpretty -cs | sed "s/^/ /" && exit ; exit ${PIPESTATUS[0]}
 
-all: bootstrap test
+test-podspec:
+	pod lib lint CCLRequestReplay.podspec
+
+all: bootstrap test test-podspec
 
