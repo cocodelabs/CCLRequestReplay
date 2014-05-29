@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7762CD7C1936BD1600D57ED8 /* CCLRequestRecordingXCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762CD7B1936BD1600D57ED8 /* CCLRequestRecordingXCTest.m */; };
 		77756B3E18965FE400A55DB0 /* CCLRequestRecordingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */; };
 		77756B401896626600A55DB0 /* CCLRequestRecordProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B3F1896626600A55DB0 /* CCLRequestRecordProtocolTest.m */; };
 		77D7FD781903416E00D76614 /* CCLRequestReplayManagerBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D7FD771903416E00D76614 /* CCLRequestReplayManagerBlueprint.m */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7762CD7B1936BD1600D57ED8 /* CCLRequestRecordingXCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestRecordingXCTest.m; sourceTree = "<group>"; };
 		77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestRecordingTest.m; sourceTree = "<group>"; };
 		77756B3F1896626600A55DB0 /* CCLRequestRecordProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestRecordProtocolTest.m; sourceTree = "<group>"; };
 		77D7FD771903416E00D76614 /* CCLRequestReplayManagerBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLRequestReplayManagerBlueprint.m; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				77F7103C1891BC8200828235 /* CCLRequestReplayProtocolTest.m */,
 				77756B3D18965FE400A55DB0 /* CCLRequestRecordingTest.m */,
 				77D7FD771903416E00D76614 /* CCLRequestReplayManagerBlueprint.m */,
+				7762CD7B1936BD1600D57ED8 /* CCLRequestRecordingXCTest.m */,
 				77F710311891A40D00828235 /* Supporting Files */,
 			);
 			path = CCLRequestReplayTests;
@@ -194,6 +197,7 @@
 				77756B3E18965FE400A55DB0 /* CCLRequestRecordingTest.m in Sources */,
 				77D7FD781903416E00D76614 /* CCLRequestReplayManagerBlueprint.m in Sources */,
 				77756B401896626600A55DB0 /* CCLRequestRecordProtocolTest.m in Sources */,
+				7762CD7C1936BD1600D57ED8 /* CCLRequestRecordingXCTest.m in Sources */,
 				77F710371891A40D00828235 /* CCLRequestReplayManagerTest.m in Sources */,
 				77F7103D1891BC8200828235 /* CCLRequestReplayProtocolTest.m in Sources */,
 			);
