@@ -19,10 +19,12 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Replay' do |replay_spec|
     replay_spec.source_files = 'CCLRequestReplay/CCLRequestReplayProtocol.{h,m}'
+    replay_spec.dependency 'CCLRequestReplay/Manager'
   end
 
   spec.subspec 'Record' do |record_spec|
     record_spec.source_files = 'CCLRequestReplay/CCLRequestRecordProtocol.{h,m}'
+    record_spec.dependency 'CCLRequestReplay/Manager'
   end
 
   spec.subspec 'Blueprint' do |blueprint_spec|
