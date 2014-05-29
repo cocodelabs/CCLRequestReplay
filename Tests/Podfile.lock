@@ -4,10 +4,16 @@ PODS:
     - CCLRequestReplay/Manager
     - CCLRequestReplay/Record
     - CCLRequestReplay/Replay
+    - CCLRequestReplay/XCTest
   - CCLRequestReplay/Blueprint (0.9.0)
   - CCLRequestReplay/Manager (0.9.0)
-  - CCLRequestReplay/Record (0.9.0)
-  - CCLRequestReplay/Replay (0.9.0)
+  - CCLRequestReplay/Record (0.9.0):
+    - CCLRequestReplay/Manager
+  - CCLRequestReplay/Replay (0.9.0):
+    - CCLRequestReplay/Manager
+  - CCLRequestReplay/XCTest (0.9.0):
+    - CCLRequestReplay/Manager
+    - CCLRequestReplay/Replay
   - Expecta (0.2.3)
   - OCMock (2.2.2)
   - Specta (0.2.1)
@@ -23,9 +29,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CCLRequestReplay: 1b83297e2382d429a12a8bb568a53a27320bd3ae
-  Expecta: 2434bb2e2b3b1814280ec5d9a11359433d035975
-  OCMock: 233db993fabda22597349856ee3d3c6f4fcfa87f
-  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
+  CCLRequestReplay: 8843aed0023f6016f5929698ac59da0bb7deabb0
+  Expecta: 578e0c29df79a96a159187599e2def686ef6a66c
+  OCMock: ee92ff671156212865397cd6fbae60a2d3698fb8
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1

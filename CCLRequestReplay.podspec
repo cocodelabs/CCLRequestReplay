@@ -27,6 +27,13 @@ Pod::Spec.new do |spec|
     record_spec.dependency 'CCLRequestReplay/Manager'
   end
 
+  spec.subspec 'XCTest' do |xctest_spec|
+    xctest_spec.source_files = 'CCLRequestReplay/XCTest+CCLRequestReplay.{h,m}'
+    xctest_spec.frameworks = 'XCTest'
+    xctest_spec.dependency 'CCLRequestReplay/Manager'
+    xctest_spec.dependency 'CCLRequestReplay/Replay'
+  end
+
   spec.subspec 'Blueprint' do |blueprint_spec|
     blueprint_spec.source_files = 'CCLRequestReplay/CCLRequestReplayManager+Blueprint.{h,m}'
   end
