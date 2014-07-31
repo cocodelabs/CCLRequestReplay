@@ -23,14 +23,16 @@
  @param request The request to match
  @param response The response to replay when the request matches
  @param data The HTTP body for the response
+ @return Returns the created recording that was added to the receiver
  */
-- (void)addRequest:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data;
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data;
 
 /** A convinience method to add a recording by supplying a request which results in an error.
  @param request The request to match
  @param error The error to replay when the request matches
+ @return Returns the created recording that was added to the receiver
  */
-- (void)addRequest:(NSURLRequest *)request error:(NSError *)error;
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request error:(NSError *)error;
 
 /** Remove a recording from the replay manager
  @param recording The recording to remove from the replay manager

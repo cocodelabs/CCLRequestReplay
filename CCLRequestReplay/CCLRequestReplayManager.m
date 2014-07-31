@@ -65,14 +65,16 @@
 
 #pragma mark - Adding a recording for a request/response
 
-- (void)addRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data {
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data {
     CCLRequestRecording *recording = [[CCLRequestRecording alloc] initWithRequest:request response:response data:data];
     [self addRecording:recording];
+    return recording;
 }
 
-- (void)addRequest:(NSURLRequest *)request error:(NSError *)error {
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request error:(NSError *)error {
     CCLRequestRecording *recording = [[CCLRequestRecording alloc] initWithRequest:request error:error];
     [self addRecording:recording];
+    return recording;
 }
 
 @end

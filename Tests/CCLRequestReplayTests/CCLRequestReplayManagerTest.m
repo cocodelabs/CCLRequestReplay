@@ -31,9 +31,10 @@ describe(@"CLRequestReplayManager", ^{
         NSData *data = [@"Hello World!" dataUsingEncoding:NSUTF8StringEncoding];
 
         CCLRequestReplayManager *sut = [[CCLRequestReplayManager alloc] init];
-        [sut addRequest:request response:response data:data];
+        CCLRequestRecording *recording = [sut addRequest:request response:response data:data];
 
         CCLRequestRecording *urlResponse = [[sut recordings] firstObject];
+        expect(recording).to.equal(urlResponse);
         expect([urlResponse request]).to.equal(request);
         expect([urlResponse response]).to.equal(response);
         expect([urlResponse data]).to.equal(data);
@@ -45,9 +46,10 @@ describe(@"CLRequestReplayManager", ^{
         NSError *error = [[NSError alloc] init];
 
         CCLRequestReplayManager *sut = [[CCLRequestReplayManager alloc] init];
-        [sut addRequest:request error:error];
+        CCLRequestRecording *recording = [sut addRequest:request error:error];
 
         CCLRequestRecording *urlResponse = [[sut recordings] firstObject];
+        expect(recording).to.equal(urlResponse);
         expect([urlResponse request]).to.equal(request);
         expect([urlResponse response]).to.beNil();
         expect([urlResponse data]).to.beNil();
