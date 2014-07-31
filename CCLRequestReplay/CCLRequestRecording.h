@@ -20,11 +20,16 @@
 
 @end
 
+/// An implementation of the CCLRequestRecordingProtocol protocol
 @interface CCLRequestRecording : NSObject <CCLRequestRecordingProtocol>
 
 - (instancetype)initWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data;
 - (instancetype)initWithRequest:(NSURLRequest *)request error:(NSError *)error;
 
+/** Returns a Boolean value that indicates whether a given recording is equal to the receiver.
+ @param recording The recording with which to compare the receiver.
+ @return YES if the recording is equal to the receiver.
+ */
 - (BOOL)isEqualToRecording:(CCLRequestRecording *)recording;
 
 @property (nonatomic, copy, readonly) NSURLRequest *request;

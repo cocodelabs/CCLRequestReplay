@@ -14,9 +14,14 @@
 
 @end
 
+/** An extension to CCLRequestReplayManager to add support for recording
+ requests and responses from real NSURLProtocol connections */
 @interface CCLRequestReplayManager (Record)
 
+/// Start recording all NSURLProtocol connections
 - (void)record;
+
+/// Stop recording NSURLProtocol connections
 - (void)stopRecording;
 
 @end
