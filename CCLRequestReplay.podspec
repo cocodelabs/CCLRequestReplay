@@ -12,6 +12,7 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target = '10.7'
   spec.ios.deployment_target = '5.0'
   spec.header_dir = 'CCLRequestReplay'
+  spec.source_files = 'CCLRequestReplay/CCLRequestReplay.h'
 
   spec.subspec 'Manager' do |core_spec|
     core_spec.source_files = 'CCLRequestReplay/CCLRequestReplayManager.{h,m}', 'CCLRequestReplay/CCLRequestRecording.{h,m}'
