@@ -19,12 +19,14 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'Replay' do |replay_spec|
-    replay_spec.source_files = 'CCLRequestReplay/CCLRequestReplayProtocol.{h,m}'
+    replay_spec.source_files = 'CCLRequestReplay/CCLRequestReplayProtocol{Private.h,.h,.m}'
+    replay_spec.public_header_files = 'CCLRequestReplay/CCLRequestReplayProtocol.h'
     replay_spec.dependency 'CCLRequestReplay/Manager'
   end
 
   spec.subspec 'Record' do |record_spec|
-    record_spec.source_files = 'CCLRequestReplay/CCLRequestRecordProtocol.{h,m}'
+    record_spec.source_files = 'CCLRequestReplay/CCLRequestRecordProtocol{Private.h,.h,.m}'
+    record_spec.public_header_files = 'CCLRequestReplay/CCLRequestRecordProtocol.h'
     record_spec.dependency 'CCLRequestReplay/Manager'
   end
 

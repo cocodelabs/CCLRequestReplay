@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CCLRequestRecording.h"
 
+/** `CCLRequestReplayManager` is a class to manage request recordings
+ and allow you to record or replay recordings.
+ */
 @interface CCLRequestReplayManager : NSObject <NSSecureCoding>
 
 /** Returns an array of all registered recordings. */

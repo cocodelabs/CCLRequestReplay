@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CCLRequestReplayManager.h"
 
-
-@interface CCLRequestRecordProtocol : NSURLProtocol
-
-@end
-
 /** An extension to CCLRequestReplayManager to add support for recording
  requests and responses from real NSURLProtocol connections */
 @interface CCLRequestReplayManager (Record)

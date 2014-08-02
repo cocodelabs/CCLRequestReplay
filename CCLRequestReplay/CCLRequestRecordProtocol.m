@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Cocode LTD. All rights reserved.
 //
 
+#import "CCLRequestRecordProtocolPrivate.h"
 #import "CCLRequestRecordProtocol.h"
 #import "CCLRequestReplayManager.h"
 #import "CCLRequestRecording.h"
