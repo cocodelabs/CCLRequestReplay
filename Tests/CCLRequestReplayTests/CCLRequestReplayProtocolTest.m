@@ -22,7 +22,7 @@ SpecBegin(CCLRequestReplayProtocol)
 
 describe(@"CCLRequestReplayProtocol", ^{
     it(@"should inherit from NSURLProtocol", ^{
-        expect([[CCLRequestReplayProtocol alloc] init]).to.beKindOf([NSURLProtocol class]);
+        expect([[NSClassFromString(@"CCLRequestReplayProtocol") alloc] init]).to.beKindOf([NSURLProtocol class]);
     });
 
     it(@"should init with matching request", ^{
@@ -35,7 +35,7 @@ describe(@"CCLRequestReplayProtocol", ^{
 
         [manager replay];
 
-        expect([CCLRequestReplayProtocol canInitWithRequest:request]).to.beTruthy();
+        expect([NSClassFromString(@"CCLRequestReplayProtocol") canInitWithRequest:request]).to.beTruthy();
 
         [manager stopReplay];
     });
@@ -51,12 +51,12 @@ describe(@"CCLRequestReplayProtocol", ^{
         [manager replay];
         [manager stopReplay];
 
-        expect([CCLRequestReplayProtocol canInitWithRequest:request]).to.beFalsy();
+        expect([NSClassFromString(@"CCLRequestReplayProtocol") canInitWithRequest:request]).to.beFalsy();
     });
 
     it(@"should canonicalize request", ^{
         NSURLRequest *request = [[NSURLRequest alloc] init];
-        NSURLRequest *cannonicalizedRequest = [CCLRequestReplayProtocol canonicalRequestForRequest:request];
+        NSURLRequest *cannonicalizedRequest = [NSClassFromString(@"CCLRequestReplayProtocol") canonicalRequestForRequest:request];
         expect(cannonicalizedRequest).notTo.beNil();
     });
 
@@ -76,7 +76,7 @@ describe(@"CCLRequestReplayProtocol", ^{
         [manager replay];
 
         OCMockObject<NSURLProtocolClient> *client = [OCMockObject mockForProtocol:@protocol(NSURLProtocolClient)];
-        CCLRequestReplayProtocol *protocol = [[CCLRequestReplayProtocol alloc] initWithRequest:request cachedResponse:nil client:client];
+        NSURLProtocol *protocol = [[NSClassFromString(@"CCLRequestReplayProtocol") alloc] initWithRequest:request cachedResponse:nil client:client];
         [[client expect] URLProtocol:protocol didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
         [[client expect] URLProtocolDidFinishLoading:protocol];
 
@@ -102,7 +102,7 @@ describe(@"CCLRequestReplayProtocol", ^{
         [manager replay];
 
         OCMockObject<NSURLProtocolClient> *client = [OCMockObject mockForProtocol:@protocol(NSURLProtocolClient)];
-        CCLRequestReplayProtocol *protocol = [[CCLRequestReplayProtocol alloc] initWithRequest:request cachedResponse:nil client:client];
+        NSURLProtocol *protocol = [[NSClassFromString(@"CCLRequestReplayProtocol") alloc] initWithRequest:request cachedResponse:nil client:client];
         [[client expect] URLProtocol:protocol didFailWithError:error];
 
         [protocol startLoading];

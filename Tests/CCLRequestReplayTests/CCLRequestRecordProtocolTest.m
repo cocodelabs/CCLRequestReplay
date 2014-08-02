@@ -20,12 +20,12 @@ SpecBegin(CCLRequestHTTPRecordProtocol)
 
 describe(@"CCLRequestRecordProtocol", ^{
     it(@"should inherit from NSURLProtocol", ^{
-        expect([[CCLRequestRecordProtocol alloc] init]).to.beKindOf([NSURLProtocol class]);
+        expect([[NSClassFromString(@"CCLRequestRecordProtocol") alloc] init]).to.beKindOf([NSURLProtocol class]);
     });
 
     it(@"should init with a request", ^{
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://test.com/"]];
-        expect([CCLRequestRecordProtocol canInitWithRequest:request]).to.beTruthy();
+        expect([NSClassFromString(@"CCLRequestRecordProtocol") canInitWithRequest:request]).to.beTruthy();
     });
 
     it(@"should record an errored request", ^{
