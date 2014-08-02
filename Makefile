@@ -8,7 +8,7 @@ bootstrap:
 
 test:
 	@printf "\e[32m=> Running OS X Tests\033[0m\n"
-	@$(XCODEBUILD) test | xcpretty -cs | sed "s/^/ /" && exit ; exit ${PIPESTATUS[0]}
+	@$(XCODEBUILD) test | xcpretty -cs && exit ${PIPESTATUS[0]}
 
 test-podspec:
 	pod lib lint CCLRequestReplay.podspec
