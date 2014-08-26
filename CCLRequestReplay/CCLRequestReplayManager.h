@@ -46,3 +46,26 @@
 - (void)removeAllRecordings;
 
 @end
+
+@interface CCLRequestReplayManager (Convenience)
+
+/** A convenience method to add a recording with a HTTP response.
+ @param request The request to match
+ @param statusCode The status code for the HTTP response
+ @param headers Optional headers for the HTTP response
+ @param contentType The content type for the HTTP response if there is content
+ @param content The HTTP body for the HTTP response
+ @return Returns the created recording that was added to the receiver
+ */
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request responseWithStatusCode:(NSUInteger)statusCode headers:(NSDictionary *)headers contentType:(NSString *)contentType content:(NSData *)content;
+
+/** A convenience method to add a recording with a HTTP response with a JSON payload.
+ @param request The request to match
+ @param statusCode The status code for the HTTP response
+ @param headers Optional headers for the HTTP response
+ @param content The content to be JSON encoded
+ @return Returns the created recording that was added to the receiver
+ */
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request JSONResponseWithStatusCode:(NSUInteger)statusCode headers:(NSDictionary *)headers content:(id)content;
+
+@end

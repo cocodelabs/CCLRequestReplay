@@ -78,3 +78,28 @@
 }
 
 @end
+
+@implementation CCLRequestReplayManager (Convenience)
+
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request responseWithStatusCode:(NSUInteger)statusCode headers:(NSDictionary *)headers contentType:(NSString *)contentType content:(NSData *)content {
+    if (contentType && headers[@"Content-Type"] == nil) {
+        NSMutableDictionary *mutableHeaders = headers ? [headers mutableCopy] : [NSMutableDictionary dictionary];
+        mutableHeaders[@"Content-Type"] = contentType;
+        headers = [mutableHeaders copy];
+    }
+
+    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers];
+    return [self addRequest:request response:response data:content];
+}
+
+- (CCLRequestRecording *)addRequest:(NSURLRequest *)request JSONResponseWithStatusCode:(NSUInteger)statusCode headers:(NSDictionary *)headers content:(id)content {
+    NSData *data;
+
+    if (content) {
+        data = [NSJSONSerialization dataWithJSONObject:content options:0 error:NULL];
+    }
+
+    return [self addRequest:request responseWithStatusCode:statusCode headers:headers contentType:@"application/json; charset=utf8" content:data];
+}
+
+@end

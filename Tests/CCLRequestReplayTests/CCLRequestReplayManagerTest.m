@@ -113,4 +113,43 @@ describe(@"CLRequestReplayManager", ^{
     });
 });
 
+describe(@"CLRequestReplayManager convenience extension", ^{
+    it(@"should be able to add a recording with status code, headers and content", ^{
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://test/helloworld"]];
+        NSData *content = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+
+        CCLRequestReplayManager *manager = [[CCLRequestReplayManager alloc] init];
+        CCLRequestRecording *recording = [manager addRequest:request responseWithStatusCode:200 headers:@{@"Accepts": @"plain/text"} contentType:@"plain/text" content:content];
+
+        expect(recording).notTo.beNil();
+        expect(@[recording]).to.equal(manager.recordings);
+        expect(recording.request).to.equal(request);
+        expect(recording.error).to.beNil();
+        expect(recording.response).notTo.beNil();
+
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)recording.response;
+        expect(response.statusCode).to.equal(200);
+        expect(response.allHeaderFields).to.equal(@{@"Accepts": @"plain/text", @"Content-Type": @"plain/text"});
+        expect(recording.data).to.equal(content);
+    });
+
+    it(@"should be able to add a JSON recording", ^{
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://test/helloworld.json"]];
+
+        CCLRequestReplayManager *manager = [[CCLRequestReplayManager alloc] init];
+        CCLRequestRecording *recording = [manager addRequest:request JSONResponseWithStatusCode:200 headers:@{@"Accepts": @"application/json"} content:@{@"text": @"Hello World"}];
+
+        expect(recording).notTo.beNil();
+        expect(@[recording]).to.equal(manager.recordings);
+        expect(recording.request).to.equal(request);
+        expect(recording.error).to.beNil();
+        expect(recording.response).notTo.beNil();
+
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)recording.response;
+        expect(response.statusCode).to.equal(200);
+        expect(response.allHeaderFields).to.equal(@{@"Accepts": @"application/json", @"Content-Type": @"application/json; charset=utf8"});
+        expect(recording.data).to.equal([@"{\"text\":\"Hello World\"}" dataUsingEncoding:NSUTF8StringEncoding]);
+    });
+});
+
 SpecEnd
